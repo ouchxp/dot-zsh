@@ -1,5 +1,7 @@
 source ~/.zplug/init.zsh
 
+local PLATFORM_MATCHER=$([[ $OSTYPE == *darwin* ]] && echo "*darwin*amd64*" || echo "*linux*amd64*")
+
 zplug "plugins/git", from:oh-my-zsh
 zplug "plugins/history", from:oh-my-zsh
 zplug "plugins/extract", from:oh-my-zsh
@@ -7,7 +9,8 @@ zplug "robbyrussell/oh-my-zsh", use:"lib/directories.zsh"
 zplug "robbyrussell/oh-my-zsh", use:"lib/theme-and-appearance.zsh"
 zplug "robbyrussell/oh-my-zsh", use:"lib/key-bindings.zsh"
 zplug "robbyrussell/oh-my-zsh", use:"lib/history.zsh"
-zplug "junegunn/fzf-bin", from:gh-r, as:command, rename-to:fzf, use:$([[ $OSTYPE == *darwin* ]] && echo "*darwin*amd64*" || echo "*linux*amd64*")
+zplug "jingweno/ccat", from:gh-r, as:command, rename-to:cat, use:$PLATFORM_MATCHER
+zplug "junegunn/fzf-bin", from:gh-r, as:command, rename-to:fzf, use:$PLATFORM_MATCHER
 zplug "junegunn/fzf", use:"shell/*.zsh"
 zplug "rupa/z", use:z.sh
 zplug "changyuheng/fz", use:"*.zsh"
