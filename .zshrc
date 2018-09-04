@@ -5,10 +5,10 @@ local PLATFORM_MATCHER=$([[ $OSTYPE == *darwin* ]] && echo "*darwin*amd64*" || e
 zplug "plugins/git", from:oh-my-zsh
 zplug "plugins/history", from:oh-my-zsh
 zplug "plugins/extract", from:oh-my-zsh
-zplug "robbyrussell/oh-my-zsh", use:"lib/directories.zsh"
-zplug "robbyrussell/oh-my-zsh", use:"lib/theme-and-appearance.zsh"
-zplug "robbyrussell/oh-my-zsh", use:"lib/key-bindings.zsh"
-zplug "robbyrussell/oh-my-zsh", use:"lib/history.zsh"
+zplug "lib/directories", from:oh-my-zsh
+zplug "lib/theme-and-appearance", from:oh-my-zsh
+zplug "lib/key-bindings", from:oh-my-zsh
+zplug "lib/history", from:oh-my-zsh
 zplug "jingweno/ccat", from:gh-r, as:command, rename-to:cat, use:$PLATFORM_MATCHER
 zplug "junegunn/fzf-bin", from:gh-r, as:command, rename-to:fzf, use:$PLATFORM_MATCHER
 zplug "junegunn/fzf", use:"shell/*.zsh"
@@ -16,10 +16,7 @@ zplug "rupa/z", use:z.sh
 zplug "changyuheng/fz", use:"*.zsh"
 zplug "changyuheng/zsh-interactive-cd", use:"*.zsh"
 zplug "zsh-users/zsh-syntax-highlighting", defer:2
-zplug "~/.zsh/script", from:local, use:"alias.zsh"
-zplug "~/.zsh/script", from:local, use:"notifier.zsh"
-zplug "~/.zsh/script", from:local, use:"xenv.zsh"
-zplug "~/.zsh/script", from:local, use:"fzf.zsh", defer:1
+zplug "~/.zsh/script", from:local, on:"junegunn/fzf"
 zplug "~/.zsh/themes", from:local, as:theme, use:"myfishymod.zsh-theme"
 
 # Install plugins if there are plugins that have not been installed
