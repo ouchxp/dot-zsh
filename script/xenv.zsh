@@ -6,7 +6,7 @@ export PATH="$PYENV_ROOT/bin:$PATH"
 # [ -r ~/.pyenv ] && eval "$(pyenv virtualenv-init -)" # this command is optional
 
 # Jenv
-[ -r ~/.jenv ] && eval "$(jenv init -)"
+[ -r ~/.jenv ] && eval "$(jenv init --no-rehash -)"
 
 # Nodenv
 [ -r ~/.nodenv ] && eval "$(nodenv init -)"
