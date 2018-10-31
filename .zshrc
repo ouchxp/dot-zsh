@@ -9,6 +9,7 @@ zplug "lib/directories", from:oh-my-zsh
 zplug "lib/theme-and-appearance", from:oh-my-zsh
 zplug "lib/key-bindings", from:oh-my-zsh
 zplug "lib/history", from:oh-my-zsh
+zplug "marianogappa/sql", from:gh-r, as:command, rename-to:sql, use:$PLATFORM_MATCHER
 zplug "jingweno/ccat", from:gh-r, as:command, rename-to:cat, use:$PLATFORM_MATCHER
 zplug "junegunn/fzf-bin", from:gh-r, as:command, rename-to:fzf, use:$PLATFORM_MATCHER
 zplug "junegunn/fzf", use:"shell/*.zsh"
