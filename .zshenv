@@ -13,3 +13,4 @@ export ZSH_HIGHLIGHT_MAXLENGTH=300
 export NOTIFICATION_THRESHOLD=120
 export NOTIFICATION_BLACKLIST=^(git|tig|vi|vim|ssh|scala|sbt|jshell).*$
 export ZPLUG_HOME=~/.zplug
+export LANG=en_GB.UTF-8
