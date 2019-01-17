@@ -31,7 +31,7 @@ fi
 zplug load
 
 # Misc
-[ -f /usr/libexec/java_home ] && export JAVA_HOME=$(/usr/libexec/java_home)
+[ -f /usr/libexec/java_home ] && export JAVA_HOME=$(/usr/libexec/java_home -v 1.8)
 [ -f ~/.iterm2_shell_integration.zsh ] && test -e ${HOME}/.iterm2_shell_integration.bash && source ${HOME}/.iterm2_shell_integration.bash
 [ -f ~/.iterm2_shell_integration.zsh ] && source ~/.iterm2_shell_integration.`basename $SHELL`
 [ -f ~/.travis/travis.sh ] && source ~/.travis/travis.sh
