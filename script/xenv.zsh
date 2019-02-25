@@ -10,3 +10,6 @@ export PATH="$PYENV_ROOT/bin:$PATH"
 
 # Nodenv
 [ -r ~/.nodenv ] && eval "$(nodenv init -)"
+
+# Rubyenv
+[ -r ~/.rbenv ] && eval "$(rbenv init -)"
