@@ -67,7 +67,7 @@ _fzf_complete_kubectl() {
   if [[ $ARGS =~ '^kubectl --context[= ]([^ ]+) ' ]]; then
     local context=$match[1]
     _fzf_complete "--multi --reverse" "$@" < <(
-        curl -s $(kubectl config view -o json | jq -r --arg context_name "$context" '.clusters as $clusters | .contexts[] | select(.name==$context_name) as $context | $clusters[] | select(.name==$context.context.cluster) | .cluster.server | rtrimstr(":8443") | "\(.)/api/v1/namespaces/\($context.context.namespace)/pods?pretty=false"') | jq -r '.items[] | .metadata.name'
+        kubectl --context "$context" get pod --field-selector=status.phase=Running --no-headers=true -o custom-columns=:metadata.name
     )
   fi
 }
