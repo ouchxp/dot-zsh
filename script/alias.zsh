@@ -8,5 +8,5 @@ alias kubectl="_k5l"
 if hash exa 2>/dev/null
 then
     alias ls="exa"
-    alias ll="exa --long --header --git"
+    alias ll="exa --long --header --git --time-style long-iso"
 fi
