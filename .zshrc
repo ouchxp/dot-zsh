@@ -17,7 +17,7 @@ zplug "rupa/z", use:z.sh
 zplug "changyuheng/fz", use:"*.zsh"
 zplug "changyuheng/zsh-interactive-cd", use:"*.zsh"
 zplug "zsh-users/zsh-syntax-highlighting", defer:2
-zplug "~/.zsh/script", from:local, on:"junegunn/fzf"
+zplug "~/.zsh/script", from:local, on:"junegunn/fzf", defer:1
 zplug "~/.zsh/themes", from:local, as:theme, use:"myfishymod.zsh-theme"
 
 # Install plugins if there are plugins that have not been installed

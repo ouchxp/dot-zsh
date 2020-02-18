@@ -26,7 +26,7 @@ _fishy_collapsed_wd() {
 _node_version() {
   local ver=$(nodenv version-name | sed -e "s/system//")
   if [[ !  -z  $ver  ]]; then
-    echo " %{$fg[green]%}⬢$ver%{$reset_color%}"
+    echo " %{$fg[green]%}⬢ $ver%{$reset_color%}"
   fi
 }
 

@@ -60,14 +60,14 @@ _fzf_complete_docker() {
 }
 
 # Read kube config to load pods
-_fzf_complete_kubectl() {
-  ARGS="$@"
-  # match cluster name from args
-  # kubectl config view -o json | jq '.clusters as $clusters | .contexts[] | select(.name=="cn") | .context.cluster as $cluster_name | $clusters[] | select(.name==$cluster_name) | .cluster.server | rtrimstr(":8443")'
-  if [[ $ARGS =~ '^kubectl --context[= ]([^ ]+) ' ]]; then
-    local context=$match[1]
-    _fzf_complete "--multi --reverse" "$@" < <(
-        kubectl --context "$context" get pod --field-selector=status.phase=Running --no-headers=true -o custom-columns=:metadata.name
-    )
-  fi
-}
+# _fzf_complete_kubectl() {
+#   ARGS="$@"
+#   # match cluster name from args
+#   # kubectl config view -o json | jq '.clusters as $clusters | .contexts[] | select(.name=="cn") | .context.cluster as $cluster_name | $clusters[] | select(.name==$cluster_name) | .cluster.server | rtrimstr(":8443")'
+#   if [[ $ARGS =~ '^kubectl --context[= ]([^ ]+) ' ]]; then
+#     local context=$match[1]
+#     _fzf_complete "--multi --reverse" "$@" < <(
+#         kubectl --context "$context" get pod --field-selector=status.phase=Running --no-headers=true -o custom-columns=:metadata.name
+#     )
+#   fi
+# }
