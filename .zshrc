@@ -1,34 +1,35 @@
-source ~/.zplug/init.zsh
+source ~/.zinit/bin/zinit.zsh
 
-local PLATFORM_MATCHER=$([[ $OSTYPE == *darwin* ]] && echo "*darwin*amd64*" || echo "*linux*amd64*")
+zinit snippet OMZ::lib/directories.zsh
+zinit snippet OMZ::lib/theme-and-appearance.zsh
+zinit snippet OMZ::lib/key-bindings.zsh
+zinit snippet OMZ::lib/history.zsh
+zinit snippet OMZ::lib/git.zsh
+zinit snippet OMZ::plugins/git/git.plugin.zsh
+zinit snippet OMZ::plugins/history/history.plugin.zsh
+zinit snippet OMZ::plugins/extract/extract.plugin.zsh
+zinit load rupa/z
+zinit load changyuheng/fz
+zinit load changyuheng/zsh-interactive-cd
+zinit ice wait lucid
+zinit load zdharma/fast-syntax-highlighting
+zinit ice pick"shell/completion.zsh" src"shell/key-bindings.zsh"
+zinit load junegunn/fzf
+zinit ice wait'[[ $(typeset -f fzf-file-widget) ]]' lucid # load after fzf shell
+zinit snippet ~/.zsh/script/fzf.zsh
+zinit snippet ~/.zsh/script/alias.zsh
+zinit snippet ~/.zsh/script/aws.zsh
+zinit snippet ~/.zsh/script/k5l.zsh
+zinit snippet ~/.zsh/script/notifier.zsh
+zinit ice wait lucid
+zinit snippet ~/.zsh/script/xenv.zsh
+zinit snippet ~/.zsh/themes/myfishymod.zsh-theme
 
-zplug "plugins/git", from:oh-my-zsh
-zplug "plugins/history", from:oh-my-zsh
-zplug "plugins/extract", from:oh-my-zsh
-zplug "lib/directories", from:oh-my-zsh
-zplug "lib/theme-and-appearance", from:oh-my-zsh
-zplug "lib/key-bindings", from:oh-my-zsh
-zplug "lib/history", from:oh-my-zsh
-zplug "marianogappa/sql", from:gh-r, as:command, rename-to:sql, use:$PLATFORM_MATCHER
-zplug "jingweno/ccat", from:gh-r, as:command, rename-to:cat, use:$PLATFORM_MATCHER
-zplug "junegunn/fzf-bin", from:gh-r, as:command, rename-to:fzf, use:$PLATFORM_MATCHER
-zplug "junegunn/fzf", use:"shell/*.zsh"
-zplug "rupa/z", use:z.sh
-zplug "changyuheng/fz", use:"*.zsh"
-zplug "changyuheng/zsh-interactive-cd", use:"*.zsh"
-zplug "zsh-users/zsh-syntax-highlighting", defer:2
-zplug "~/.zsh/script", from:local, on:"junegunn/fzf", defer:1
-zplug "~/.zsh/themes", from:local, as:theme, use:"myfishymod.zsh-theme"
-
-# Install plugins if there are plugins that have not been installed
-if ! zplug check --verbose; then
-    printf "Install? [y/N]: "
-    if read -q; then
-        echo; zplug install
-    fi
-fi
-
-zplug load
+# Binaries
+zinit ice from"gh-r" as"program"
+zinit load junegunn/fzf-bin
+zinit ice from"gh-r" as"program" mv"*/ccat -> cat"
+zinit load jingweno/ccat
 
 # Misc
 [ -f /usr/libexec/java_home ] && export JAVA_HOME=$(/usr/libexec/java_home -v 1.8)
