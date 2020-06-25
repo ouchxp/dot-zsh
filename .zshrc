@@ -1,35 +1,34 @@
 source ~/.zinit/bin/zinit.zsh
 
-zinit snippet OMZ::lib/directories.zsh
-zinit snippet OMZ::lib/theme-and-appearance.zsh
-zinit snippet OMZ::lib/key-bindings.zsh
-zinit snippet OMZ::lib/history.zsh
-zinit snippet OMZ::lib/git.zsh
-zinit snippet OMZ::plugins/git/git.plugin.zsh
-zinit snippet OMZ::plugins/history/history.plugin.zsh
-zinit snippet OMZ::plugins/extract/extract.plugin.zsh
-zinit load rupa/z
-zinit load changyuheng/fz
-zinit load changyuheng/zsh-interactive-cd
-zinit ice wait lucid
-zinit load zdharma/fast-syntax-highlighting
-zinit ice pick"shell/completion.zsh" src"shell/key-bindings.zsh"
-zinit load junegunn/fzf
-zinit ice wait'[[ $(typeset -f fzf-file-widget) ]]' lucid # load after fzf shell
-zinit snippet ~/.zsh/script/fzf.zsh
-zinit snippet ~/.zsh/script/alias.zsh
-zinit snippet ~/.zsh/script/aws.zsh
-zinit snippet ~/.zsh/script/k5l.zsh
-zinit snippet ~/.zsh/script/notifier.zsh
-zinit ice wait lucid
-zinit snippet ~/.zsh/script/xenv.zsh
-zinit snippet ~/.zsh/themes/myfishymod.zsh-theme
+# Oh-My-Zsh snippets
+zinit is-snippet for OMZ::lib/directories.zsh
+zinit is-snippet for OMZ::lib/theme-and-appearance.zsh
+zinit is-snippet for OMZ::lib/key-bindings.zsh
+zinit is-snippet for OMZ::lib/history.zsh
+zinit is-snippet for OMZ::lib/git.zsh
+zinit is-snippet for OMZ::plugins/git/git.plugin.zsh
+zinit is-snippet for OMZ::plugins/history/history.plugin.zsh
+zinit is-snippet for OMZ::plugins/extract/extract.plugin.zsh
+
+# Plugins
+zinit for rupa/z
+zinit for changyuheng/fz
+zinit for changyuheng/zsh-interactive-cd
+zinit wait lucid for zdharma/fast-syntax-highlighting
+zinit pick"shell/completion.zsh" src"shell/key-bindings.zsh" for junegunn/fzf
+
+# Local snippet
+zinit wait'[[ $(typeset -f fzf-file-widget) ]]' lucid is-snippet for ~/.zsh/script/fzf.zsh # load after fzf shell
+zinit wait lucid is-snippet for ~/.zsh/script/xenv.zsh
+zinit is-snippet for ~/.zsh/script/alias.zsh
+zinit is-snippet for ~/.zsh/script/aws.zsh
+zinit is-snippet for ~/.zsh/script/k5l.zsh
+zinit is-snippet for ~/.zsh/script/notifier.zsh
+zinit is-snippet for ~/.zsh/themes/myfishymod.zsh-theme
 
 # Binaries
-zinit ice from"gh-r" as"program"
-zinit load junegunn/fzf-bin
-zinit ice from"gh-r" as"program" mv"*/ccat -> cat"
-zinit load jingweno/ccat
+zinit from"gh-r" as"program" for junegunn/fzf-bin
+zinit from"gh-r" as"program" mv"*/ccat -> cat" for jingweno/ccat
 
 # Misc
 [ -f /usr/libexec/java_home ] && export JAVA_HOME=$(/usr/libexec/java_home -v 1.8)
