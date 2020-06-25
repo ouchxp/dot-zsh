@@ -12,6 +12,9 @@ ln -s ~/.zsh/.zshrc ~/.zshrc
 ln -s ~/.zsh/.zshenv ~/.zshenv
 ln -s ~/.zsh/.hushlogin ~/.hushlogin
 
+# husky
+ln -s ~/.zsh/.huskyrc ~/.huskyrc
+
 # Vim
 git clone --depth=1 https://github.com/amix/vimrc.git ~/.vim_runtime
 sh ~/.vim_runtime/install_basic_vimrc.sh
