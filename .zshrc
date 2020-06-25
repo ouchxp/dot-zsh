@@ -17,7 +17,7 @@ zinit for changyuheng/zsh-interactive-cd
 zinit wait lucid for zdharma/fast-syntax-highlighting
 zinit pick"shell/completion.zsh" src"shell/key-bindings.zsh" for junegunn/fzf
 
-# Local snippet
+# Local snippets
 zinit wait'[[ $(typeset -f fzf-file-widget) ]]' lucid is-snippet for ~/.zsh/script/fzf.zsh # load after fzf shell
 zinit wait lucid is-snippet for ~/.zsh/script/xenv.zsh
 zinit is-snippet for ~/.zsh/script/alias.zsh
@@ -29,6 +29,7 @@ zinit is-snippet for ~/.zsh/themes/myfishymod.zsh-theme
 # Binaries
 zinit from"gh-r" as"program" for junegunn/fzf-bin
 zinit from"gh-r" as"program" mv"*/ccat -> cat" for jingweno/ccat
+zinit from"gh-r" as"program" mv"exa* -> exa" for ogham/exa
 
 # Misc
 [ -f /usr/libexec/java_home ] && export JAVA_HOME=$(/usr/libexec/java_home -v 1.8)
