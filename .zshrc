@@ -29,7 +29,8 @@ zinit is-snippet for ~/.zsh/themes/myfishymod.zsh-theme
 # Binaries
 zinit from"gh-r" as"program" for junegunn/fzf-bin
 zinit from"gh-r" as"program" mv"*/ccat -> cat" for jingweno/ccat
-zinit from"gh-r" as"program" mv"exa* -> exa" for ogham/exa
+zinit from"gh-r" as"program" mv"exa-* -> exa" for ogham/exa
+zinit from"gh-r" as"program" mv"jq-* -> jq" for stedolan/jq
 
 # Misc
 [ -f /usr/libexec/java_home ] && export JAVA_HOME=$(/usr/libexec/java_home -v 1.8)
