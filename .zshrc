@@ -1,5 +1,12 @@
 source ~/.zinit/bin/zinit.zsh
 
+# Binaries
+zinit from"gh-r" as"program" for junegunn/fzf-bin
+zinit from"gh-r" as"program" mv"*/ccat -> cat" for jingweno/ccat
+zinit from"gh-r" as"program" mv"exa-* -> exa" for ogham/exa
+zinit from"gh-r" as"program" mv"jq-* -> jq" for stedolan/jq
+zinit from"gh-r" as"program" mv"*/rg -> rg" for BurntSushi/ripgrep
+
 # Oh-My-Zsh snippets
 zinit is-snippet for OMZ::lib/directories.zsh
 zinit is-snippet for OMZ::lib/theme-and-appearance.zsh
@@ -25,13 +32,6 @@ zinit is-snippet for ~/.zsh/script/aws.zsh
 zinit is-snippet for ~/.zsh/script/k5l.zsh
 zinit is-snippet for ~/.zsh/script/notifier.zsh
 zinit is-snippet for ~/.zsh/themes/myfishymod.zsh-theme
-
-# Binaries
-zinit from"gh-r" as"program" for junegunn/fzf-bin
-zinit from"gh-r" as"program" mv"*/ccat -> cat" for jingweno/ccat
-zinit from"gh-r" as"program" mv"exa-* -> exa" for ogham/exa
-zinit from"gh-r" as"program" mv"jq-* -> jq" for stedolan/jq
-zinit from"gh-r" as"program" mv"*/rg -> rg" for BurntSushi/ripgrep
 
 # Misc
 [ -f /usr/libexec/java_home ] && export JAVA_HOME=$(/usr/libexec/java_home -v 1.8)
