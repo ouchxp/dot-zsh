@@ -1,26 +1,15 @@
 # ZSH Theme emulating the Fish shell's default prompt.
-
-# One implementation using awk
-# _fishy_collapsed_wd() {
-#   echo ${PWD/#$HOME/'~'} | awk -F '/' '
-#     BEGIN{ORS="/"}
-#     {
-#       for (i = 1; i <= NF; i++) {
-#         if (length($i) <= 3 || i == NF) print $i;
-#         else print substr($i,0,1)
-#       }
-#     }
-#     END { printf "\b" }
-#   '
-# }
-
 _fishy_collapsed_wd() {
-  echo $(pwd | perl -pe '
-   BEGIN {
-      binmode STDIN,  ":encoding(UTF-8)";
-      binmode STDOUT, ":encoding(UTF-8)";
-   }; s|^$ENV{HOME}|~|g; s|/([^/.])[^/]*(?=/)|/$1|g; s|/\.([^/])[^/]*(?=/)|/.$1|g
-')
+  echo ${PWD/#$HOME/'~'} | awk -F '/' '
+    BEGIN{ORS="/"}
+    {
+      for (i = 1; i <= NF; i++) {
+        if (length($i) <= 3 || i == NF) print $i;
+        else print substr($i,0,1)
+      }
+    }
+    END { printf "\b" }
+  '
 }
 
 _node_version() {
