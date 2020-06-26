@@ -1,4 +1,6 @@
-git clone https://github.com/zplug/zplug.git ~/.zplug
+mkdir ~/.zinit
+git clone https://github.com/zdharma/zinit.git ~/.zinit/bin
+
 if [ -f ~/.zshrc ]; then
     mv ~/.zshrc ~/.zshrc.backup
 fi
