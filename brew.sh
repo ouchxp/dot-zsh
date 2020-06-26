@@ -7,6 +7,7 @@ brew install terminal-notifier
 brew install vim
 brew install watch
 brew install ncdu
+brew install bat
 
 # Git
 brew install git
