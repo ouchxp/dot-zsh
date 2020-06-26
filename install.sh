@@ -1,6 +1,7 @@
 mkdir ~/.zinit
 git clone https://github.com/zdharma/zinit.git ~/.zinit/bin
 
+# dotfiles
 if [ -f ~/.zshrc ]; then
     mv ~/.zshrc ~/.zshrc.backup
 fi
@@ -13,20 +14,14 @@ fi
 ln -s ~/.zsh/.zshrc ~/.zshrc
 ln -s ~/.zsh/.zshenv ~/.zshenv
 ln -s ~/.zsh/.hushlogin ~/.hushlogin
-
-# husky
 ln -s ~/.zsh/.huskyrc ~/.huskyrc
+ln -s ~/.zsh/.global_gitignore ~/.gitignore
+git config --global core.excludesfile "~/.gitignore"
 
 # Vim
 git clone --depth=1 https://github.com/amix/vimrc.git ~/.vim_runtime
 sh ~/.vim_runtime/install_basic_vimrc.sh
 
 # KeyBindings
-cat << EOF > ~/Library/KeyBindings/DefaultKeyBinding.dict
-{
-    "\UF729"  = "moveToBeginningOfLine:";
-    "\UF72B"  = "moveToEndOfLine:";
-    "$\UF729" = "moveToBeginningOfLineAndModifySelection:";
-    "$\UF72B" = "moveToEndOfLineAndModifySelection:";
-}
-EOF
+mkdir -p ~/Library/KeyBindings
+ln -s ~/.zsh/DefaultKeyBinding.dict ~/Library/KeyBindings/DefaultKeyBinding.dict
