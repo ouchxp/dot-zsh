@@ -31,6 +31,7 @@ zinit from"gh-r" as"program" for junegunn/fzf-bin
 zinit from"gh-r" as"program" mv"*/ccat -> cat" for jingweno/ccat
 zinit from"gh-r" as"program" mv"exa-* -> exa" for ogham/exa
 zinit from"gh-r" as"program" mv"jq-* -> jq" for stedolan/jq
+zinit from"gh-r" as"program" mv"*/rg -> rg" for BurntSushi/ripgrep
 
 # Misc
 [ -f /usr/libexec/java_home ] && export JAVA_HOME=$(/usr/libexec/java_home -v 1.8)
