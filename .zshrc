@@ -5,6 +5,7 @@ zinit from"gh-r" as"program" for junegunn/fzf-bin
 zinit from"gh-r" as"program" mv"exa-* -> exa" for ogham/exa
 zinit from"gh-r" as"program" mv"jq-* -> jq" for stedolan/jq
 zinit from"gh-r" as"program" mv"*/rg -> rg" for BurntSushi/ripgrep
+zinit from"gh-r" as"program" mv"*/bat -> bat" for @sharkdp/bat
 
 # Oh-My-Zsh snippets
 zinit is-snippet for OMZ::lib/directories.zsh
