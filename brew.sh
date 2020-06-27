@@ -23,6 +23,7 @@ brew install nodenv-nvmrc
 brew install awscli
 brew install sbt
 brew install jenv
+mkdir -p ~/.jenv/versions
 
 # Casks
 brew tap homebrew/cask-versions
