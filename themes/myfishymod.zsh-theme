@@ -3,12 +3,12 @@ _fishy_collapsed_wd() {
   echo ${PWD/#$HOME/'~'} | awk -F '/' '
     BEGIN{ORS="/"}
     {
-      for (i = 1; i <= NF; i++) {
-        if (length($i) <= 3 || i == NF) print $i;
+      for (i = 1; i < NF; i++) {
+        if (length($i) <= 3) print $i;
         else print substr($i,0,1)
       }
     }
-    END { printf "\b" }
+    END {ORS=""; print $NF;}
   '
 }
 
