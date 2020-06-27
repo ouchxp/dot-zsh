@@ -35,3 +35,9 @@ brew cask install visual-studio-code
 brew cask install slack
 brew cask install docker
 brew cask install jetbrains-toolbox
+brew cask install 1password
+brew cask install iterm2
+brew cask install alfred
+brew cask install bartender
+brew cask install google-chrome
+brew cask install firefox

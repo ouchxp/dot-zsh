@@ -1,6 +1,8 @@
 mkdir ~/.zinit
 git clone https://github.com/zdharma/zinit.git ~/.zinit/bin
 
+for f in $(compaudit);do sudo chown $(whoami):admin $f;done;
+
 # dotfiles
 if [ -f ~/.zshrc ]; then
     mv ~/.zshrc ~/.zshrc.backup
