@@ -1,7 +1,8 @@
 mkdir ~/.zinit
 git clone https://github.com/zdharma/zinit.git ~/.zinit/bin
 
-for f in $(compaudit);do sudo chown $(whoami):admin $f;done;
+autoload -U compaudit
+compaudit | xargs chmod g-w
 
 # dotfiles
 if [ -f ~/.zshrc ]; then
