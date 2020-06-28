@@ -31,33 +31,33 @@ fzf-locate-widget() {
 zle     -N   fzf-locate-widget
 bindkey '^L' fzf-locate-widget
 
-# Custom fuzzy completion for "docker" command, modified from https://github.com/junegunn/fzf/issues/760
-_fzf_complete_docker() {
-  ARGS="$@"
-  if [[ $ARGS = 'docker ' ]]; then
-    _fzf_complete "--multi --reverse" "$@" < <(
-        echo 'images'
-        echo 'inspect'
-        echo 'ps -a'
-        echo 'rmi'
-        echo 'rm'
-        echo 'stop'
-        echo 'start'
-    )
-  elif [[ $ARGS =~ '^docker rmi.*' ]]; then
-    _fzf_complete "--multi --reverse" "$@" < <(
-        docker images --format '{{.Repository}}:{{.Tag}}'
-    )
-  elif [[ $ARGS =~ '^docker start.*|^docker rm.*' ]]; then
-    _fzf_complete "--multi --reverse" "$@" < <(
-        docker ps -f "status=exited" --format '{{.Names}}'
-    )
-  elif [[ $ARGS =~ '^docker stop.*|^docker exec.*' ]]; then
-    _fzf_complete "--multi --reverse" "$@" < <(
-        docker ps --format '{{.Names}}'
-    )
-  fi
-}
+# # Custom fuzzy completion for "docker" command, modified from https://github.com/junegunn/fzf/issues/760
+# _fzf_complete_docker() {
+#   ARGS="$@"
+#   if [[ $ARGS = 'docker ' ]]; then
+#     _fzf_complete "--multi --reverse" "$@" < <(
+#         echo 'images'
+#         echo 'inspect'
+#         echo 'ps -a'
+#         echo 'rmi'
+#         echo 'rm'
+#         echo 'stop'
+#         echo 'start'
+#     )
+#   elif [[ $ARGS =~ '^docker rmi.*' ]]; then
+#     _fzf_complete "--multi --reverse" "$@" < <(
+#         docker images --format '{{.Repository}}:{{.Tag}}'
+#     )
+#   elif [[ $ARGS =~ '^docker start.*|^docker rm.*' ]]; then
+#     _fzf_complete "--multi --reverse" "$@" < <(
+#         docker ps -f "status=exited" --format '{{.Names}}'
+#     )
+#   elif [[ $ARGS =~ '^docker stop.*|^docker exec.*' ]]; then
+#     _fzf_complete "--multi --reverse" "$@" < <(
+#         docker ps --format '{{.Names}}'
+#     )
+#   fi
+# }
 
 # Read kube config to load pods
 # _fzf_complete_kubectl() {

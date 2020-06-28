@@ -17,6 +17,7 @@ zinit is-snippet for OMZ::lib/git.zsh
 zinit is-snippet for OMZ::plugins/git/git.plugin.zsh
 zinit is-snippet for OMZ::plugins/history/history.plugin.zsh
 zinit is-snippet for OMZ::plugins/extract/extract.plugin.zsh
+zinit atload"zpcompinit" lucid as"completion" for OMZ::plugins/docker/_docker
 
 # Plugins
 zinit for rupa/z
