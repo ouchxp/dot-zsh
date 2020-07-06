@@ -3,7 +3,6 @@
 # Tools
 brew install zsh
 brew install trash
-brew install terminal-notifier
 brew install vim
 brew install watch
 brew install ncdu
