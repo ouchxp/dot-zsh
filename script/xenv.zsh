@@ -12,6 +12,7 @@ export PATH="$PYENV_ROOT/bin:$PATH"
     && /bin/rm ~/.jenv/shims/npm || true
 
 # nodenv
+export PATH="$HOME/.nodenv/bin:$PATH"
 [ -r ~/.nodenv ] && eval "$(nodenv init -)" || true
 
 # rbenv
