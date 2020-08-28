@@ -17,3 +17,9 @@ export PATH="$HOME/.nodenv/bin:$PATH"
 
 # rbenv
 [ -r ~/.rbenv ] && eval "$(rbenv init -)" || true
+
+# nix
+if [ -e ~/.nix-profile/etc/profile.d/nix.sh ]; then . ~/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer
+
+# direnv
+command -v direnv &> /dev/null && eval "$(direnv hook zsh)"
