@@ -1,5 +1,7 @@
 source ~/.zinit/bin/zinit.zsh
 
+setopt complete_aliases
+
 # Binaries
 zinit from"gh-r" as"program" for junegunn/fzf-bin
 zinit from"gh-r" as"program" mv"exa-* -> exa" for ogham/exa
@@ -18,6 +20,7 @@ zinit is-snippet for OMZ::plugins/git/git.plugin.zsh
 zinit is-snippet for OMZ::plugins/history/history.plugin.zsh
 zinit is-snippet for OMZ::plugins/extract/extract.plugin.zsh
 zinit atload"zpcompinit" lucid as"completion" for OMZ::plugins/docker/_docker
+zinit is-snippet atload"zpcompinit" lucid as"completion" for ~/.zsh/complete/_aws-vault
 
 # Plugins
 zinit for rupa/z
