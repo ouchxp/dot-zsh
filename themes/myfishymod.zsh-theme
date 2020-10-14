@@ -20,8 +20,14 @@ _node_version() {
   fi
 }
 
+_aws_vault_info() {
+  if [[ -n $AWS_VAULT ]]; then
+    echo "%{$fg[yellow]%}($AWS_VAULT)%{$reset_color%} "
+  fi
+}
+
 local user=''; [ $UID -eq 0 ] && user="%{$fg[red]%}%n@%m%{$reset_color%}"
-PROMPT='${user} %{$fg[green]%}$(_fishy_collapsed_wd)%{$reset_color%}%(!.#.>) '
+PROMPT='${user} $(_aws_vault_info)%{$fg[green]%}$(_fishy_collapsed_wd)%{$reset_color%}%(!.#.>) '
 PROMPT2='%{$fg[red]%}\ %{$reset_color%}'
 
 local return_status=" %{$fg_bold[red]%}%(?..%?)%{$reset_color%}"
