@@ -16,5 +16,5 @@ _av_auto_unset() {
     if [[ $1 = 'exec' ]] && [[ -n $AWS_VAULT ]]; then
         unset AWS_VAULT
     fi
-    aws-vault $@
+    command aws-vault $@
 }
