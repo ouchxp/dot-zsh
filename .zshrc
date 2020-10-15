@@ -25,7 +25,7 @@ zinit is-snippet atload"zpcompinit" lucid as"completion" for ~/.zsh/complete/_aw
 # Plugins
 zinit for rupa/z
 zinit for changyuheng/fz
-zinit for changyuheng/zsh-interactive-cd
+zinit atload"zpcompinit" for Aloxaf/fzf-tab
 zinit wait lucid for zdharma/fast-syntax-highlighting
 zinit pick"shell/completion.zsh" src"shell/key-bindings.zsh" for junegunn/fzf
 
