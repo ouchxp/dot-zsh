@@ -28,6 +28,7 @@ zinit for changyuheng/fz
 zinit atload"zpcompinit" for Aloxaf/fzf-tab
 zinit wait lucid for zdharma/fast-syntax-highlighting
 zinit pick"shell/completion.zsh" src"shell/key-bindings.zsh" for junegunn/fzf
+# want to make git cherry-pick have auto-complete of all commits, even it is unreachable
 
 # Local snippets
 zinit wait'[[ $(typeset -f fzf-file-widget) ]]' lucid is-snippet for ~/.zsh/script/fzf.zsh # load after fzf shell

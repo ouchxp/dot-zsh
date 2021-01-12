@@ -27,16 +27,16 @@ mkdir -p ~/.jenv/versions
 # Casks
 brew tap homebrew/cask-versions
 brew tap homebrew/cask-drivers
-brew cask install hammerspoon
-brew cask install steelseries-exactmouse-tool
-brew cask install zulu8
-brew cask install visual-studio-code
-brew cask install slack
-brew cask install docker
-brew cask install jetbrains-toolbox
-brew cask install 1password
-brew cask install iterm2
-brew cask install alfred
-brew cask install bartender
-brew cask install google-chrome
-brew cask install firefox
+brew install hammerspoon --cask
+brew install steelseries-exactmouse-tool --cask
+brew install zulu8 --cask
+brew install visual-studio-code --cask
+brew install slack --cask
+brew install docker --cask
+brew install jetbrains-toolbox --cask
+brew install 1password --cask
+brew install iterm2 --cask
+brew install alfred --cask
+brew install bartender --cask
+brew install google-chrome --cask
+brew install firefox --cask
