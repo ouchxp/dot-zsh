@@ -29,3 +29,7 @@ sh ~/.vim_runtime/install_basic_vimrc.sh
 # KeyBindings
 mkdir -p ~/Library/KeyBindings
 ln -s ~/.zsh/DefaultKeyBinding.dict ~/Library/KeyBindings/DefaultKeyBinding.dict
+
+# Misc
+defaults write com.jetbrains.intellij ApplePressAndHoldEnabled -bool false
+git config --global pull.ff only
