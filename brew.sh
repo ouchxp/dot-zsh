@@ -6,6 +6,12 @@ brew install trash
 brew install vim
 brew install watch
 brew install ncdu
+brew install fzf
+brew install exa
+brew install jq
+brew install rg
+brew install bat
+brew install terminal-notifier
 
 # Git
 brew install git
