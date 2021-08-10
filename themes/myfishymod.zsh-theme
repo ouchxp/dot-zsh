@@ -13,10 +13,12 @@ _fishy_collapsed_wd() {
 }
 
 _node_version() {
-  local ver=$(nodenv version-name)
-  local global=$(nodenv global)
-  if [[ $ver != $global  ]]; then
-    echo " %{$fg[green]%}⬢ $ver%{$reset_color%}"
+  if [[ $(typeset -f nodenv) ]]; then
+    local ver=$(nodenv version-name)
+    local global=$(nodenv global)
+    if [[ $ver != $global  ]]; then
+      echo " %{$fg[green]%}⬢ $ver%{$reset_color%}"
+    fi
   fi
 }
 

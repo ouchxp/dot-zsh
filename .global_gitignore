@@ -4,3 +4,4 @@
 .bloop
 .vscode
 metals.sbt
+*.iml
