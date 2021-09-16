@@ -5,3 +5,4 @@
 .vscode
 metals.sbt
 *.iml
+/target
