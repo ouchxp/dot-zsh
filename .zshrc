@@ -1,3 +1,4 @@
+eval "$(/opt/homebrew/bin/brew shellenv)"
 source ~/.zinit/bin/zinit.zsh
 
 setopt complete_aliases
