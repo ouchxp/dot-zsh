@@ -18,3 +18,4 @@ export NOTIFICATION_BLACKLIST=^(git|tig|vi|vim|ssh|scala|sbt|jshell).*$
 export LANG=en_GB.UTF-8
 export HOSTNAME=NansMBP
 export BAT_CONFIG_PATH=~/.bat.conf
+export HOMEBREW_NO_ENV_HINTS=1
