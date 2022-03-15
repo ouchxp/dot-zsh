@@ -17,6 +17,8 @@ brew install terminal-notifier
 brew install git
 brew install tig
 brew install diff-so-fancy
+brew install gnupg
+brew install pinentry-mac
 
 # Node
 brew tap nodenv/nodenv
@@ -29,6 +31,7 @@ brew install awscli
 brew install sbt
 brew install jenv
 mkdir -p ~/.jenv/versions
+brew install direnv
 
 # Casks
 brew tap homebrew/cask-versions
