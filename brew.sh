@@ -34,7 +34,7 @@ mkdir -p ~/.jenv/versions
 brew tap homebrew/cask-versions
 brew tap homebrew/cask-drivers
 brew install hammerspoon --cask
-brew install steelseries-exactmouse-tool --cask
+brew install linearmouse --cask
 brew install zulu8 --cask
 brew install visual-studio-code --cask
 brew install slack --cask
