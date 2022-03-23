@@ -1,6 +1,6 @@
 # User configuration
-export GOROOT=/usr/local/go/bin/
-export GOPATH=$HOME/Go
+export GOROOT=/usr/local/go
+export GOPATH=~/go
 export PATH="/usr/local/sbin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:$GOROOT/bin:$GOPATH/bin:$HOME/.cargo/bin:/usr/local/opt/libpq/bin/"
 export MANPATH="/usr/local/man:$MANPATH"
 export FZF_DEFAULT_OPTS="--color=pointer:15,fg:247,fg+:15,hl:10 --cycle --bind=tab:accept"
