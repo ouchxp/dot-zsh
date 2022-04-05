@@ -12,6 +12,7 @@ brew install jq
 brew install rg
 brew install bat
 brew install terminal-notifier
+brew install fig
 
 # Git
 brew install git
