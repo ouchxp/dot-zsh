@@ -1,6 +1,3 @@
-export PATH="${PATH}:${HOME}/.local/bin"
-eval "$(fig init zsh pre)"
-
 eval "$(/opt/homebrew/bin/brew shellenv)"
 source ~/.zinit/bin/zinit.zsh
 
@@ -40,5 +37,3 @@ zinit is-snippet for ~/.zsh/themes/myfishymod.zsh-theme
 [ -f ~/.iterm2_shell_integration.zsh ] && test -e ${HOME}/.iterm2_shell_integration.bash && source ${HOME}/.iterm2_shell_integration.bash
 [ -f ~/.iterm2_shell_integration.zsh ] && source ~/.iterm2_shell_integration.`basename $SHELL`
 [ -f ~/.travis/travis.sh ] && source ~/.travis/travis.sh
-
-eval "$(fig init zsh post)"
