@@ -26,6 +26,7 @@ brew tap nodenv/nodenv
 brew install yarn
 brew install nodenv
 brew install nodenv-nvmrc
+brew install nodenv-aliases
 
 # Misc
 brew install awscli
