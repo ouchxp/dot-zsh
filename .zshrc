@@ -34,6 +34,5 @@ zinit is-snippet for ~/.zsh/themes/myfishymod.zsh-theme
 
 # Misc
 [ -f /usr/libexec/java_home ] && export JAVA_HOME=$(/usr/libexec/java_home -v 11)
-[ -f ~/.iterm2_shell_integration.zsh ] && test -e ${HOME}/.iterm2_shell_integration.bash && source ${HOME}/.iterm2_shell_integration.bash
-[ -f ~/.iterm2_shell_integration.zsh ] && source ~/.iterm2_shell_integration.`basename $SHELL`
+[ -f ~/.iterm2_shell_integration.zsh ] && source /Users/nanw/.iterm2_shell_integration.zsh
 [ -f ~/.travis/travis.sh ] && source ~/.travis/travis.sh
