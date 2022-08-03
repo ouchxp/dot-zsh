@@ -30,6 +30,7 @@ zinit is-snippet for ~/.zsh/script/alias.zsh
 zinit is-snippet for ~/.zsh/script/aws.zsh
 zinit is-snippet for ~/.zsh/script/k5l.zsh
 zinit is-snippet for ~/.zsh/script/notifier.zsh
+zinit is-snippet for ~/.zsh/script/decode.zsh
 zinit is-snippet for ~/.zsh/themes/myfishymod.zsh-theme
 
 # Misc
