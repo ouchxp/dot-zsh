@@ -22,6 +22,8 @@ brew install tig
 brew install diff-so-fancy
 brew install gnupg
 brew install pinentry-mac
+echo "pinentry-program $(which pinentry-mac)" >> ~/.gnupg/gpg-agent.conf
+killall gpg-agent
 
 # Node
 brew tap nodenv/nodenv
