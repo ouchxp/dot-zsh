@@ -1,5 +1,7 @@
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
 
+eval "$(/opt/homebrew/bin/brew shellenv)"
+
 # Tools
 brew install zsh
 brew install trash
@@ -31,6 +33,7 @@ brew install nodenv-aliases
 # Misc
 brew install awscli
 brew install sbt
+brew install pyenv
 brew install jenv
 mkdir -p ~/.jenv/versions
 brew install direnv
