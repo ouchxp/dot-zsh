@@ -13,10 +13,9 @@ _fishy_collapsed_wd() {
 }
 
 _node_version() {
-  if [[ $(typeset -f nodenv) ]]; then
-    local ver=$(nodenv version-name)
-    local global=$(nodenv global)
-    if [[ $ver != $global  ]]; then
+  if [[ $(command -v fnm) ]]; then
+    local ver=$(fnm current)
+    if [[ $ver != "system"  ]]; then
       echo " %{$fg[green]%}⬢ $ver%{$reset_color%}"
     fi
   fi
@@ -43,7 +42,7 @@ PROMPT='${user} $(_aws_vault_info)%{$fg[green]%}$(_fishy_collapsed_wd)%{$reset_c
 PROMPT2='%{$fg[red]%}\ %{$reset_color%}'
 
 local return_status=" %{$fg_bold[red]%}%(?..%?)%{$reset_color%}"
-RPROMPT='${return_status}$(_awsGetProfile 2> /dev/null)$(_python_version)$(_node_version)$(git_prompt_info)$(git_prompt_status)%{$reset_color%}'
+RPROMPT='${return_status}$(_awsGetProfile 2> /dev/null)$(_node_version)$(git_prompt_info)$(git_prompt_status)%{$reset_color%}'
 
 ZSH_THEME_GIT_PROMPT_PREFIX=" "
 ZSH_THEME_GIT_PROMPT_SUFFIX=""

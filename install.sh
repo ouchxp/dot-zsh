@@ -18,6 +18,7 @@ ln -s ~/.zsh/.zshrc ~/.zshrc
 ln -s ~/.zsh/.zshenv ~/.zshenv
 ln -s ~/.zsh/.hushlogin ~/.hushlogin
 ln -s ~/.zsh/.huskyrc ~/.huskyrc
+ln -s ~/.zsh/.nvmrc ~/.nvmrc
 ln -s ~/.zsh/.bat.conf ~/.bat.conf
 ln -s ~/.zsh/.global_gitignore ~/.gitignore
 git config --global core.excludesfile "~/.gitignore"

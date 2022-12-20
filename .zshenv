@@ -1,7 +1,7 @@
 # User configuration
 export GOROOT=/usr/local/go
 export GOPATH=~/go
-export PATH="/usr/local/sbin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:$GOROOT/bin:$GOPATH/bin:$HOME/.cargo/bin:/usr/local/opt/libpq/bin/"
+export PATH="/opt/homebrew/opt/mysql-client/bin:/usr/local/sbin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:$GOROOT/bin:$GOPATH/bin:$HOME/.cargo/bin:/usr/local/opt/libpq/bin/:$HOME/.local/bin"
 export MANPATH="/usr/local/man:$MANPATH"
 export FZF_DEFAULT_OPTS="--color=pointer:15,fg:247,fg+:15,hl:10 --cycle --bind=tab:accept"
 export FZF_COMPLETION_TRIGGER="?"
@@ -18,3 +18,7 @@ export LANG=en_GB.UTF-8
 export HOSTNAME=NansMBP
 export BAT_CONFIG_PATH=~/.bat.conf
 export HOMEBREW_NO_ENV_HINTS=1
+export FNM_LOGLEVEL=quiet
+export STARSHIP_CONFIG=~/.zsh/starship.toml
+export STARSHIP_LOG=error
+source ~/.zshenv.local

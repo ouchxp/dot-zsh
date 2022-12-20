@@ -1,0 +1,44 @@
+format = """ $directory$character"""
+right_format = """
+$fossil_branch\
+$git_branch\
+$git_commit\
+$git_state\
+$git_metrics\
+$git_status\
+$golang\
+$java\
+$nodejs\
+$python\
+$nix_shell\
+$memory_usage\
+$env_var\
+$custom\
+$cmd_duration\
+$status\
+"""
+
+add_newline = false
+
+[character]
+success_symbol = '[>](bold green)'
+error_symbol = '[>](bold green)'
+
+[directory]
+style = 'bold green'
+format = '[$path]($style)[$read_only]($read_only_style)'
+fish_style_pwd_dir_length = 1
+
+[nodejs]
+symbol = "[⬢](bold green) "
+format = '[$symbol($version )]($style)'
+
+[python]
+format = '[${symbol}${pyenv_prefix}(${version} )(\($virtualenv\) )]($style)'
+
+[git_branch]
+symbol = ''
+format = '[\($symbol$branch(:$remote_branch)\)]($style) '
+
+[golang]
+format = '[$symbol($version )]($style)'

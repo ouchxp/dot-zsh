@@ -14,6 +14,7 @@ brew install jq
 brew install rg
 brew install bat
 brew install terminal-notifier
+brew install startship
 # brew install fig
 
 # Git
@@ -26,11 +27,9 @@ echo "pinentry-program $(which pinentry-mac)" >> ~/.gnupg/gpg-agent.conf
 killall gpg-agent
 
 # Node
-brew tap nodenv/nodenv
 brew install yarn
 brew install nodenv
-brew install nodenv-nvmrc
-brew install nodenv-aliases
+brew install nodenv/nodenv/nodenv-nvmrc
 
 # Misc
 brew install awscli
@@ -44,7 +43,6 @@ brew install direnv
 brew tap homebrew/cask-versions
 brew tap homebrew/cask-drivers
 brew install hammerspoon --cask
-brew install linearmouse --cask
 brew install zulu8 --cask
 brew install visual-studio-code --cask
 brew install slack --cask
