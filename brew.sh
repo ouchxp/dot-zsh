@@ -15,6 +15,7 @@ brew install rg
 brew install bat
 brew install terminal-notifier
 brew install startship
+brew tap kaplanelad/tap && brew install shellfirm
 # brew install fig
 
 # Git
