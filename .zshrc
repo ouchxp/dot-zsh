@@ -8,11 +8,10 @@ setopt nohashcmds
 # Oh-My-Zsh snippets
 zinit is-snippet for OMZ::lib/theme-and-appearance.zsh
 zinit is-snippet for OMZ::lib/git.zsh
+zinit is-snippet for OMZ::lib/key-bindings.zsh
 zinit wait lucid is-snippet for OMZ::lib/directories.zsh
-zinit wait lucid is-snippet for OMZ::lib/key-bindings.zsh
 zinit wait lucid is-snippet for OMZ::lib/history.zsh
 zinit wait lucid is-snippet for OMZ::plugins/git/git.plugin.zsh
-zinit wait lucid is-snippet for OMZ::plugins/history/history.plugin.zsh
 zinit wait lucid is-snippet for OMZ::plugins/extract/extract.plugin.zsh
 zinit wait lucid atload"zpcompinit" lucid as"completion" for OMZ::plugins/docker/completions/_docker
 zinit wait lucid is-snippet atload"zpcompinit" lucid as"completion" for ~/.zsh/complete/_aws-vault
