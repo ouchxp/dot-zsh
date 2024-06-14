@@ -16,6 +16,9 @@ zinit wait lucid is-snippet for OMZ::plugins/extract/extract.plugin.zsh
 zinit wait lucid atload"zpcompinit" lucid as"completion" for OMZ::plugins/docker/completions/_docker
 zinit wait lucid is-snippet atload"zpcompinit" lucid as"completion" for ~/.zsh/complete/_aws-vault
 
+# case insensitive comletion
+zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
+
 # Plugins
 zinit wait lucid for rupa/z
 zinit wait lucid for changyuheng/fz
