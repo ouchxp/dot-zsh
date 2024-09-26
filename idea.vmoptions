@@ -1,0 +1,3 @@
+-server
+-Dsun.java2d.metal=false
+--jbr-illegal-access
