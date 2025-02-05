@@ -34,6 +34,7 @@ brew "sbt"
 brew "pyenv"
 brew "jenv"
 brew "direnv"
+brew "gh"
 
 cask "rectangle"
 cask "hammerspoon"

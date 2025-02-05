@@ -36,6 +36,7 @@ zinit is-snippet for ~/.zsh/script/alias.zsh
 # zinit is-snippet for ~/.zsh/script/k5l.zsh
 zinit wait lucid is-snippet for ~/.zsh/script/notifier.zsh
 zinit wait lucid is-snippet for ~/.zsh/script/decode.zsh
+zinit wait lucid is-snippet for ~/.zsh/script/copilot.zsh
 # zinit is-snippet for ~/.zsh/themes/myfishymod.zsh-theme
 
 # Misc
