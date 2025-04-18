@@ -9,3 +9,4 @@ alias cat="bat"
 alias ls="eza"
 alias ll="eza --long --header --git --time-style long-iso"
 alias la="l"
+alias code='code-insiders'
