@@ -8,3 +8,5 @@ metals.sbt
 /target
 .aider.*
 .augment-guidelines
+.claude
+CLAUDE.md

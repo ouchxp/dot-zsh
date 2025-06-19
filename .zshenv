@@ -1,7 +1,7 @@
 # User configuration
 export GOROOT=/usr/local/go
 export GOPATH=~/go
-export PATH="/opt/homebrew/opt/mysql-client/bin:/usr/local/sbin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:$GOROOT/bin:$GOPATH/bin:$HOME/.cargo/bin:/usr/local/opt/libpq/bin/:$HOME/.local/bin"
+export PATH="$HOME/.npm-global/bin:/opt/homebrew/opt/mysql-client/bin:/usr/local/sbin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:$GOROOT/bin:$GOPATH/bin:$HOME/.cargo/bin:/usr/local/opt/libpq/bin/:$HOME/.local/bin"
 export MANPATH="/usr/local/man:$MANPATH"
 export FZF_DEFAULT_OPTS="--color=pointer:15,fg:247,fg+:15,hl:10 --cycle --bind=tab:accept"
 export FZF_COMPLETION_TRIGGER="?"
