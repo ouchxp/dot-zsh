@@ -10,3 +10,5 @@ metals.sbt
 .augment-guidelines
 .claude
 CLAUDE.md
+GEMINI.md
+AI_MEMORY.md
