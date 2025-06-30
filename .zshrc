@@ -31,6 +31,7 @@ zinit wait lucid pick"shell-plugins/shellfirm.plugin.oh-my-zsh.zsh" for kaplanel
 # Local snippets
 zinit wait'[[ $(typeset -f fzf-file-widget) ]]' lucid is-snippet for ~/.zsh/script/fzf.zsh # load after fzf shell
 zinit wait lucid is-snippet for ~/.zsh/script/xenv.zsh
+zinit is-snippet for ~/.zsh/script/aitools.zsh
 zinit is-snippet for ~/.zsh/script/alias.zsh
 # zinit is-snippet for ~/.zsh/script/aws.zsh
 # zinit is-snippet for ~/.zsh/script/k5l.zsh
