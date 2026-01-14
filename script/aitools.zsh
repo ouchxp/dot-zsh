@@ -33,33 +33,33 @@ ai_memory() {
     local ai_memory_dir="${ai_memory_base_path}/${repo_name}"
     local ai_memory_file="${ai_memory_dir}/AI_MEMORY.md"
 
-    # If memory already exists, print the content
-    if [[ -f "$ai_memory_file" ]]; then
-        echo "📄 AI Memory for ${repo_name}:"
-        echo "📁 Location: $ai_memory_file"
-        echo
-        cat "$ai_memory_file"
-        return
+    # Create AI_MEMORY.md if it doesn't exist
+    if [[ ! -f "$ai_memory_file" ]]; then
+        mkdir -p "$ai_memory_dir"
+        touch "$ai_memory_file"
+        echo "✅ Created empty AI_MEMORY.md at: $ai_memory_file"
+        echo "💡 You can use coding agent to populate the AI memory."
     fi
 
-    # If memory doesn't exist, set it up
-    # Create the repo directory if it doesn't exist
-    mkdir -p "$ai_memory_dir"
-
-    # Create AI_MEMORY.md
-    touch "$ai_memory_file"
-    echo "✅ Created empty AI_MEMORY.md at: $ai_memory_file"
-    echo "💡 You can use Claude Code or Gemini CLI to populate the AI memory."
-
-    # Create symbolic links in the current project directory
-    for file in ".augment-guidelines" "CLAUDE.md" "GEMINI.md"; do
+    # Always ensure symbolic links exist in the current project directory
+    local links_created=0
+    for file in "CLAUDE.md" "AGENTS.md"; do
+        if [[ -L "$file" && "$(readlink "$file")" == "$ai_memory_file" ]]; then
+            continue
+        fi
         [[ -f "$file" && ! -L "$file" ]] && mv "$file" "${file}.backup"
         [[ -L "$file" ]] && rm "$file"
         ln -s "$ai_memory_file" "$file"
         echo "🔗 Linked $file -> $ai_memory_file"
+        links_created=1
     done
 
-    echo "🎉 AI memory setup complete!"
+    if [[ $links_created -eq 1 ]]; then
+        echo "🎉 AI memory setup complete!"
+    else
+        echo "📄 AI Memory for ${repo_name}:"
+        echo
+        cat "$ai_memory_file"
+    fi
     echo "📁 AI memory file: $ai_memory_file"
-    echo "💡 Set AI_MEMORY_PATH environment variable to customize storage location"
 }
