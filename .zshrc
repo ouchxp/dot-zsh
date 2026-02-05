@@ -1,6 +1,7 @@
 eval "$(/opt/homebrew/bin/brew shellenv)"
 eval "$(starship init zsh)"
 source ~/.zinit/bin/zinit.zsh
+source $(brew --prefix asdf)/libexec/asdf.sh
 
 setopt complete_aliases
 setopt nohashcmds
