@@ -10,6 +10,6 @@ metals.sbt
 .augment-guidelines
 .claude
 CLAUDE.md
-GEMINI.md
+CLAUDE.local.md
 AGENTS.md
 /.sisyphus

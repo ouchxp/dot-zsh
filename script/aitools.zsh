@@ -43,7 +43,7 @@ ai_memory() {
 
     # Always ensure symbolic links exist in the current project directory
     local links_created=0
-    for file in "CLAUDE.md" "AGENTS.md"; do
+    for file in "CLAUDE.local.md" "AGENTS.md"; do
         if [[ -L "$file" && "$(readlink "$file")" == "$ai_memory_file" ]]; then
             continue
         fi
