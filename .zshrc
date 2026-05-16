@@ -16,6 +16,7 @@ zinit wait lucid is-snippet for OMZ::plugins/git/git.plugin.zsh
 zinit wait lucid is-snippet for OMZ::plugins/extract/extract.plugin.zsh
 zinit wait lucid atload"zpcompinit" lucid as"completion" for OMZ::plugins/docker/completions/_docker
 zinit wait lucid is-snippet atload"zpcompinit" lucid as"completion" for ~/.zsh/complete/_aws-vault
+zinit wait lucid is-snippet atload"zpcompinit" lucid as"completion" for ~/.zsh/complete/_wait-rollout
 
 # case insensitive comletion
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
@@ -39,6 +40,7 @@ zinit is-snippet for ~/.zsh/script/alias.zsh
 zinit wait lucid is-snippet for ~/.zsh/script/notifier.zsh
 zinit wait lucid is-snippet for ~/.zsh/script/decode.zsh
 zinit wait lucid is-snippet for ~/.zsh/script/copilot.zsh
+zinit wait lucid is-snippet for ~/.zsh/script/wait-rollout.zsh
 # zinit is-snippet for ~/.zsh/themes/myfishymod.zsh-theme
 
 # Misc

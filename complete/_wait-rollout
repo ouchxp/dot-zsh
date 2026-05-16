@@ -1,0 +1,39 @@
+#compdef wait-rollout
+
+_wait-rollout() {
+  local -a deployments
+  local context=""
+  local cache_file
+
+  # Parse --context flag
+  local -i i=2
+  while (( i <= $#words )); do
+    if [[ "${words[$i]}" == "--context" && $((i + 1)) -le $#words ]]; then
+      context="${words[$((i + 1))]}"
+      break
+    fi
+    (( i++ ))
+  done
+
+  if [[ "$words[2]" == "refresh" ]]; then
+    return 0
+  fi
+
+  if [[ -n "$context" ]]; then
+    cache_file="${HOME}/.wait-rollout-cache.${context}"
+  else
+    cache_file="${HOME}/.wait-rollout-cache"
+  fi
+
+  if [[ ! -f "$cache_file" ]]; then
+    _message "No cached deployments. Run 'wait-rollout${context:+ --context $context} refresh' first."
+    return 1
+  fi
+
+  deployments=(${(f)"$(< "$cache_file")"})
+  compadd -a deployments
+}
+
+if [[ "$(basename -- ${(%):-%x})" != "_wait-rollout" ]]; then
+  compdef _wait-rollout wait-rollout
+fi
