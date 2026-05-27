@@ -3,6 +3,7 @@
 .metals
 .bloop
 .vscode
+.zed
 metals.sbt
 *.iml
 /target
