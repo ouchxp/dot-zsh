@@ -35,7 +35,6 @@ brew "pyenv"
 brew "jenv"
 brew "direnv"
 brew "gh"
-brew "rtk"
 
 cask "rectangle"
 cask "hammerspoon"
