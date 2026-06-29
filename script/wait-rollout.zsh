@@ -54,9 +54,14 @@ wait-rollout() {
     return 1
   fi
 
+  local last_ts
+  last_ts=$(kubectl ${kubectl_ctx} get deployment "$name" -n "$namespace" \
+    -o jsonpath='{.status.conditions[?(@.type=="Progressing")].lastUpdateTime}' 2>/dev/null)
+  echo "Last rollout: $(_wait_rollout_ago "$last_ts")"
+
   echo "Checking rollout status for ${namespace}/${name}${context:+ (context: $context)}..."
 
-  local max_wait=1200
+  local max_wait=12000
   local waited=0
   local found=0
 
@@ -68,7 +73,7 @@ wait-rollout() {
 
     echo "No active rollout. Waiting... (${waited}s / ${max_wait}s)"
     sleep 10
-    waited=$((waited + 2))
+    waited=$((waited + 10))
   done
 
   if (( found == 0 )); then
@@ -86,6 +91,46 @@ wait-rollout() {
     echo ""
     echo "Rollout failed or timed out: ${namespace}/${name}"
     return 1
+  fi
+}
+
+_wait_rollout_ago() {
+  local ts="$1"
+  if [[ -z "$ts" ]]; then
+    echo "unknown"
+    return
+  fi
+
+  local then now diff
+  then=$(TZ=UTC date -j -f "%Y-%m-%dT%H:%M:%SZ" "$ts" "+%s" 2>/dev/null)
+  if [[ -z "$then" ]]; then
+    echo "unknown"
+    return
+  fi
+
+  now=$(date "+%s")
+  diff=$(( now - then ))
+
+  if (( diff < 60 )); then
+    echo "${diff}s ago"
+  elif (( diff < 3600 )); then
+    echo "$(( diff / 60 ))mins ago"
+  elif (( diff < 86400 )); then
+    local h=$(( diff / 3600 ))
+    local m=$(( (diff % 3600) / 60 ))
+    if (( m == 0 )); then
+      echo "${h}hrs ago"
+    else
+      echo "${h}hrs ${m}mins ago"
+    fi
+  else
+    local d=$(( diff / 86400 ))
+    local h=$(( (diff % 86400) / 3600 ))
+    if (( h == 0 )); then
+      echo "${d}days ago"
+    else
+      echo "${d}days ${h}hrs ago"
+    fi
   fi
 }
 
