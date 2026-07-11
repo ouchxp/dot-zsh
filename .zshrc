@@ -1,7 +1,6 @@
 eval "$(/opt/homebrew/bin/brew shellenv)"
 eval "$(starship init zsh)"
 source ~/.zinit/bin/zinit.zsh
-source $(brew --prefix asdf)/libexec/asdf.sh
 
 setopt complete_aliases
 setopt nohashcmds
@@ -45,8 +44,7 @@ zinit wait lucid is-snippet for ~/.zsh/script/wait-rollout.zsh
 
 # Misc
 [ -f /usr/libexec/java_home ] && export JAVA_HOME=$(/usr/libexec/java_home -v 11)
-[ -f ~/.iterm2_shell_integration.zsh ] && source /Users/nanw/.iterm2_shell_integration.zsh
-[ -f ~/.travis/travis.sh ] && source ~/.travis/travis.sh
+# [ -f ~/.travis/travis.sh ] && source ~/.travis/travis.sh
 
 # force saving all history
 export HISTSIZE=1000000000
@@ -57,5 +55,3 @@ setopt EXTENDED_HISTORY
 # command -v fnm &> /dev/null && eval "$(fnm env --use-on-cd --version-file-strategy=recursive)"
 
 
-# Added by Antigravity CLI installer
-export PATH="/Users/nanw/.local/bin:$PATH"
