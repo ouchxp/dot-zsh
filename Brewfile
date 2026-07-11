@@ -34,6 +34,7 @@ brew "direnv"
 brew "gh"
 
 cask "linearmouse"
+cask "hiddenbar"
 cask "rectangle"
 cask "hammerspoon"
 cask "zulu"
