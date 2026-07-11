@@ -33,6 +33,7 @@ brew "jenv"
 brew "direnv"
 brew "gh"
 
+cask "linearmouse"
 cask "rectangle"
 cask "hammerspoon"
 cask "zulu"
