@@ -4,7 +4,7 @@ eval "$(/opt/homebrew/bin/brew shellenv)"
 
 mkdir -p ~/.jenv/versions
 
-brew bundle --no-lock
+brew bundle
 
 echo "pinentry-program $(which pinentry-mac)" >> ~/.gnupg/gpg-agent.conf
 killall gpg-agent

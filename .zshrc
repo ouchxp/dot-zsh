@@ -43,7 +43,7 @@ zinit wait lucid is-snippet for ~/.zsh/script/wait-rollout.zsh
 # zinit is-snippet for ~/.zsh/themes/myfishymod.zsh-theme
 
 # Misc
-[ -f /usr/libexec/java_home ] && export JAVA_HOME=$(/usr/libexec/java_home -v 11)
+[ -f /usr/libexec/java_home ] && export JAVA_HOME=$(/usr/libexec/java_home)
 # [ -f ~/.travis/travis.sh ] && source ~/.travis/travis.sh
 
 # force saving all history
