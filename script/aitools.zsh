@@ -8,8 +8,11 @@ ai() {
             shift
             ai_memory "$@"
             ;;
+        skills)
+            ai_skills
+            ;;
         *)
-            echo "Usage: ai memory [global]"
+            echo "Usage: ai memory [global] | ai skills"
             ;;
     esac
 }
@@ -28,10 +31,40 @@ _ai_memory_link() {
         fi
         [[ -f "$link_name" && ! -L "$link_name" ]] && mv "$link_name" "${link_name}.backup"
         [[ -L "$link_name" ]] && rm "$link_name"
-        ln -s "$target" "$link_name"
+        ln -s "$target" "$link_name" || return 1
         echo "🔗 Linked $link -> $target"
         return 0
     )
+}
+
+ai_skills() {
+    local ai_memory_base_path="${AI_MEMORY_PATH:-$HOME/.ai-memory}"
+    local skills_dir="${ai_memory_base_path}/skills"
+    local links=("${HOME}/.claude/skills" "${HOME}/.agents/skills")
+    local link
+
+    skills_dir="${skills_dir:A}"
+    if [[ ! -d "$skills_dir" ]]; then
+        echo "❌ AI skills directory not found: $skills_dir"
+        return 1
+    fi
+
+    for link in "${links[@]}"; do
+        mkdir -p "${link:h}" || return 1
+        if [[ -e "$link" && ! -L "$link" ]]; then
+            echo "❌ Cannot link AI skills because path already exists: $link"
+            return 1
+        fi
+    done
+
+    for link in "${links[@]}"; do
+        _ai_memory_link "$skills_dir" "$link"
+        if [[ ! -L "$link" || "$(readlink "$link")" != "$skills_dir" ]]; then
+            echo "❌ Failed to link AI skills: $link"
+            return 1
+        fi
+    done
+    echo "🎉 AI skills setup complete!"
 }
 
 ai_memory() {
