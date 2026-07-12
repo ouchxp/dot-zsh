@@ -5,19 +5,42 @@
 ai() {
     case "$1" in
         memory)
-            ai_memory
+            shift
+            ai_memory "$@"
             ;;
         *)
-            echo "Usage: ai memory"
+            echo "Usage: ai memory [global]"
             ;;
     esac
 }
 
-ai_memory() {
-    # Get the base path for AI memory files (configurable via environment variable)
-    local ai_memory_base_path="${AI_MEMORY_PATH:-$HOME/.ai-memory}"
+_ai_memory_link() {
+    # $1 = target file, $2 = link path (absolute or relative)
+    local target="$1"
+    local link="$2"
+    local link_dir="${link:h}"
+    local link_name="${link:t}"
 
-    # Get current project path and repo name
+    (
+        cd "$link_dir" || exit 1
+        if [[ -L "$link_name" && "$(readlink "$link_name")" == "$target" ]]; then
+            return 1
+        fi
+        [[ -f "$link_name" && ! -L "$link_name" ]] && mv "$link_name" "${link_name}.backup"
+        [[ -L "$link_name" ]] && rm "$link_name"
+        ln -s "$target" "$link_name"
+        echo "🔗 Linked $link -> $target"
+        return 0
+    )
+}
+
+ai_memory() {
+    if [[ "$1" == "global" ]]; then
+        ai_memory_global
+        return
+    fi
+
+    local ai_memory_base_path="${AI_MEMORY_PATH:-$HOME/.ai-memory}"
     local project_path
     local repo_name
 
@@ -29,11 +52,9 @@ ai_memory() {
         repo_name=$(basename "$project_path")
     fi
 
-    # Full path to the AI memory file for this project
     local ai_memory_dir="${ai_memory_base_path}/${repo_name}"
     local ai_memory_file="${ai_memory_dir}/AI_MEMORY.md"
 
-    # Create AI_MEMORY.md if it doesn't exist
     if [[ ! -f "$ai_memory_file" ]]; then
         mkdir -p "$ai_memory_dir"
         touch "$ai_memory_file"
@@ -41,23 +62,46 @@ ai_memory() {
         echo "💡 You can use coding agent to populate the AI memory."
     fi
 
-    # Always ensure symbolic links exist in the current project directory
     local links_created=0
     for file in "CLAUDE.local.md" "AGENTS.md"; do
-        if [[ -L "$file" && "$(readlink "$file")" == "$ai_memory_file" ]]; then
-            continue
+        if _ai_memory_link "$ai_memory_file" "${project_path}/${file}"; then
+            links_created=1
         fi
-        [[ -f "$file" && ! -L "$file" ]] && mv "$file" "${file}.backup"
-        [[ -L "$file" ]] && rm "$file"
-        ln -s "$ai_memory_file" "$file"
-        echo "🔗 Linked $file -> $ai_memory_file"
-        links_created=1
     done
 
     if [[ $links_created -eq 1 ]]; then
         echo "🎉 AI memory setup complete!"
     else
         echo "📄 AI Memory for ${repo_name}:"
+        echo
+        cat "$ai_memory_file"
+    fi
+    echo "📁 AI memory file: $ai_memory_file"
+}
+
+ai_memory_global() {
+    local ai_memory_base_path="${AI_MEMORY_PATH:-$HOME/.ai-memory}"
+    local ai_memory_dir="${ai_memory_base_path}/global"
+    local ai_memory_file="${ai_memory_dir}/AI_MEMORY.md"
+
+    if [[ ! -f "$ai_memory_file" ]]; then
+        mkdir -p "$ai_memory_dir"
+        touch "$ai_memory_file"
+        echo "✅ Created empty AI_MEMORY.md at: $ai_memory_file"
+        echo "💡 You can use coding agent to populate the AI memory."
+    fi
+
+    local links_created=0
+    for file in "CLAUDE.md" "AGENTS.md"; do
+        if _ai_memory_link "$ai_memory_file" "${HOME}/${file}"; then
+            links_created=1
+        fi
+    done
+
+    if [[ $links_created -eq 1 ]]; then
+        echo "🎉 Global AI memory setup complete!"
+    else
+        echo "📄 Global AI Memory:"
         echo
         cat "$ai_memory_file"
     fi
