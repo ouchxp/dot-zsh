@@ -22,6 +22,8 @@ ln -s ~/.zsh/.nvmrc ~/.nvmrc
 ln -s ~/.zsh/.bat.conf ~/.bat.conf
 ln -s ~/.zsh/.global_gitignore ~/.gitignore
 git config --global core.excludesfile "~/.gitignore"
+mkdir -p ~/.config/ghostty
+ln -s ~/.zsh/config.ghostty ~/.config/ghostty/config.ghostty
 
 # Vim
 git clone --depth=1 https://github.com/amix/vimrc.git ~/.vim_runtime

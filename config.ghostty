@@ -1,0 +1,8 @@
+font-family = JetBrains Mono
+font-size = 12
+font-thicken = true
+font-feature = -calt
+
+split-divider-color = #FFFFFF
+unfocused-split-opacity = 0.6
+unfocused-split-fill = #000000
