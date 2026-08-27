@@ -21,4 +21,5 @@ export HOMEBREW_NO_ENV_HINTS=1
 export FNM_LOGLEVEL=quiet
 export STARSHIP_CONFIG=~/.zsh/starship.toml
 export STARSHIP_LOG=error
+export PI_CACHE_RETENTION=long
 [ -f ~/.zshenv.local ] && source ~/.zshenv.local
