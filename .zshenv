@@ -22,3 +22,5 @@ export FNM_LOGLEVEL=quiet
 export STARSHIP_CONFIG=~/.zsh/starship.toml
 export STARSHIP_LOG=error
 [ -f ~/.zshenv.local ] && source ~/.zshenv.local
+
+export PI_LENS_CONFIG_PATH=$HOME/.pi/pi-lens-config.json

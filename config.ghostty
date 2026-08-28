@@ -3,6 +3,13 @@ font-size = 12
 font-thicken = true
 font-feature = -calt
 
+# ring the macOS default notification chime (Tri-Tone) on terminal bell,
+# so it sounds even when Ghostty is frontmost
+bell-features = audio,attention,title
+bell-audio-path = ~/.zsh/notify-tritone.caf
+bell-audio-volume = 1.0
+
 split-divider-color = #FFFFFF
 unfocused-split-opacity = 0.6
 unfocused-split-fill = #000000
+
