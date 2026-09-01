@@ -4,6 +4,8 @@ source ~/.zinit/bin/zinit.zsh
 
 setopt complete_aliases
 setopt nohashcmds
+# silent ZLE beeps (Tab with no/ambiguous completion) but keep real terminal bells from apps
+unsetopt beep
 
 # Oh-My-Zsh snippets
 zinit is-snippet for OMZ::lib/theme-and-appearance.zsh
